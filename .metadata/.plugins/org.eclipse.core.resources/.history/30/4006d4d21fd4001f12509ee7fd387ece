@@ -1,0 +1,15 @@
+<div th:object="${staff}" style="width: 300px; padding: 8px; border: 1px solid black;">
+	
+	<img th:src="@{|/img/*{photo}|}" style="width: 300px;"> 
+	<hr>
+	
+	Id:
+	<b th:text="*{id}"></b>
+	<hr>
+	
+	Full name:
+	<b th:text="{#strings.capitalizeWords(*fullname)}"></b>
+	<hr>
+	
+	
+</div>

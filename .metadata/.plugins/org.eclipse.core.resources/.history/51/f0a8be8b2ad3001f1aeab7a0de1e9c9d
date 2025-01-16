@@ -1,0 +1,10 @@
+<ul>
+	<li th:text="${id}"></li>
+	<li th:text="${#strings.capitalizeWords(name.toLowerCase())}"></li>
+	<li th:text="${gender}"></li>
+	<li th:text="${#dates.format(birthday, 'dd-MM-yyyy')}"></li>
+	<li>
+		<img th:src="@{|/img/${photo}|}" style="width: 50px; height: 50px;">
+	</li>
+	<li th:text="${#number.formatDecimal(salary,0,'COMMA','POINT',2)}"></li>
+</ul>

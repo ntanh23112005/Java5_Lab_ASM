@@ -1,0 +1,65 @@
+package poly.java5.test;
+
+import java.util.Date;
+
+import lombok.Builder.Default;
+
+public class Staff {
+String id;
+String name;
+@Default
+Boolean genger = true;
+Date birtday = new Date();
+String photo = "photo.jpg";
+Double salary;
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public Boolean getGenger() {
+	return genger;
+}
+public void setGenger(Boolean genger) {
+	this.genger = genger;
+}
+public Date getBirtday() {
+	return birtday;
+}
+public void setBirtday(Date birtday) {
+	this.birtday = birtday;
+}
+public String getPhoto() {
+	return photo;
+}
+public void setPhoto(String photo) {
+	this.photo = photo;
+}
+public Double getSalary() {
+	return salary;
+}
+public void setSalary(Double salary) {
+	this.salary = salary;
+}
+public Staff(String id, String name, Boolean genger, Date birtday, String photo, Double salary) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.genger = genger;
+	this.birtday = birtday;
+	this.photo = photo;
+	this.salary = salary;
+}
+public Staff() {
+	super();
+}
+
+
+}

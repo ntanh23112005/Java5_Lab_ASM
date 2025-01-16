@@ -1,0 +1,12 @@
+package poly.java5.test;
+
+import java.util.Date;
+
+public class Staff {
+String id;
+String name;
+Boolean genger = true;
+Date birtday = new Date();
+String photo = "photo.jpg";
+Double salary;
+}

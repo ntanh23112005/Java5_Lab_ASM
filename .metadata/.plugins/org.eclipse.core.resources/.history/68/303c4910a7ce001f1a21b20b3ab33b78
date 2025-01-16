@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Form sản phẩm</title>
+</head>
+
+<body>
+    <!-- Form nhập sản phẩm (phương thức GET để mở form và POST để gửi dữ liệu) -->
+    <form action="/product/save" method="post">
+        <label>Name product:</label>
+        <input type="text" name="name" th:value="${product.name}"> <!-- Hiển thị giá trị nếu có -->
+
+        <label>Price:</label>
+        <input type="number" name="price" th:value="${product.price}"> <!-- Hiển thị giá trị nếu có -->
+
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>Thông tin sản phẩm</h2>
+    <ul>
+        <li th:text="${product.name ?: 'Chưa có tên sản phẩm'}"></li> <!-- Hiển thị tên sản phẩm hoặc thông báo nếu không có -->
+        <li th:text="${product.price ?: 'Chưa có giá'}"></li> <!-- Hiển thị giá sản phẩm hoặc thông báo nếu không có -->
+    </ul>
+</body>
+
+</html>

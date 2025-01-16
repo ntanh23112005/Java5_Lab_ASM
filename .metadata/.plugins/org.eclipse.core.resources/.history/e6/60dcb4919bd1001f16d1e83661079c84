@@ -1,0 +1,62 @@
+package poly.java5.test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class CrudController {
+
+	Map<String, Product> map = new HashMap<>();
+	
+	@RequestMapping("/crud/index")
+	public String index(Model model,
+			@ModelAttribute("form") Product product) {
+		product.setId("PRO001");
+		model.addAttribute("msg","Index");
+		return "/crud.html";
+	}
+	
+	//thêm
+	@RequestMapping("/crud/create")
+	public String create(Model model,
+			@ModelAttribute("product") Product product) {
+		if(map.containsKey(product.getId())) {
+			model.addAttribute("msg", "Đã tồn tại");
+		}else {
+			map.put(product.getId(), product);
+			model.addAttribute("msg", "Tạo thành công");
+		}
+		
+		return "/crud.html";
+	}
+	//cập nhật
+	@RequestMapping("/crud/update",
+			@ModelAttribute("product") Product product)
+	public String update(Model model) {
+		model.addAttribute("msg","Update");
+		return "/crud.html";
+	}
+	//xóa
+	@RequestMapping("/crud/delete/{id}")
+	public String delete(Model model, @PathVariable("id") String id) {
+		model.addAttribute("msg","Delete");
+		return "/crud.html";
+	}
+	//đọc
+	@RequestMapping("/crud/read/{id}")
+	public String readById(Model model, @PathVariable("id") String id) {
+		model.addAttribute("msg","Read by id");
+		return "/crud.html";
+	}
+	@RequestMapping("/crud/readall")
+	public String readAll(Model model) {
+		model.addAttribute("msg","Read All");
+		return "/crud.html";
+	}
+}

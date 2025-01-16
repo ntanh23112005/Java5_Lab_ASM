@@ -1,0 +1,6 @@
+<form action="/upload/save" method="post" 
+enctype="multipart/form-data">
+	<input type="file" name="photo"> <br>
+	<hr>
+	<button>Save</button>
+</form>

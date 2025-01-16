@@ -1,0 +1,29 @@
+package poly.java5.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/product")
+public class ProductController {
+
+    // Hiển thị form khi GET
+	@GetMapping("/form")
+	public String form(Model model) {
+		// Truyền đối tượng Product trống vào model
+		model.addAttribute("product", new Product());
+		return "lab2/product";
+	}
+	
+    // Xử lý khi form được submit
+	@PostMapping("/save")
+	public String save(Model model, @ModelAttribute Product product) {
+		// Sau khi nhận dữ liệu từ form, hiển thị lại sản phẩm đã nhập
+		model.addAttribute("product", product);
+		return "lab2/product";  // Trả lại trang sản phẩm với dữ liệu đã nhập
+	}
+}

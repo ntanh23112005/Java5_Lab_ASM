@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>OK</title>
+	</head>
+	
+	<body>
+		<form action="/ctrl/ok" method="post">
+			<button>OK 1</button>
+			<button formmethod="get">OK 2</button>
+			<button formaction="/ctrl/ok?x">OK3</button>
+		</form>
+		
+		<h2>Phương thức được gọi: <span th:text="${method}"></span></h2>
+	</body>
+</html>

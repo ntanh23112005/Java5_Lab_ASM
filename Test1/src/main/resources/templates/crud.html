@@ -1,0 +1,23 @@
+<i th:text="${msg}"></i>
+<form method="post">
+	Id:<br>
+	<input name="id" th:value="${form.id}"><br>
+	Name:<br>
+	<input name="name" th:value="${form.name}"><br>
+	Unit Price:<br>
+	<input name="unitPrice" th:value="${form.unitPrice}"><br>
+	<hr>
+	<button formaction="/crud/create">Create</button>
+	<button formaction="/crud/update">Update</button>
+	<a th:href="@{|/crud/delete/${form.id}|}">Delete</a>
+	<a href="/crud/index">Reset</a>
+</form>
+
+<ul th:each="p: ${list}">
+	<li th:text="${p.id}"></li>
+	<li th:text="${p.name}"></li>
+	<li th:text="${p.unitPrice}"></li>
+	<li>
+		<a th:href="@{|/crud/edit/${p.id}|}">Edit</a>
+	</li>
+</ul>

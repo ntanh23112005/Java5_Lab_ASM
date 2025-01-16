@@ -1,0 +1,29 @@
+<div th:object="${staff}" style="width: 300px; padding: 8px; border: 1px solid black;">
+	
+	<img th:src="@{|/img/*{photo}|}" style="width: 300px;"> 
+	<hr>
+	
+	Id:
+	<b th:text="*{id}"></b>
+	<hr>
+	
+	Full name:
+	<b th:text="*{#strings.capitalizeWords(fullname.toLowerCase)}"></b>
+	<hr>
+	
+	Gender:
+	<b th:text="*{gender ? 'Nam' : 'Nữ'}"></b>
+	<hr>
+	
+	Date of birth:
+	<b th:text="*{#dates.format(birthday, 'dd-MM-yyyy')}"></b>
+	<hr>
+	
+	Level:
+	<th:block th:switch="*{level}">
+		<b th:case="0">Úy</b>
+		<b th:case="1">Tá</b>
+		<b th:case="2">Tướng</b>
+		<b th:case="*">Chưa có</b>
+	</th:block>
+</div>
