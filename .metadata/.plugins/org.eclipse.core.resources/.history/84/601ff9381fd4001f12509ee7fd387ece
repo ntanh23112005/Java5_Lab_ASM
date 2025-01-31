@@ -1,8 +1,0 @@
-<div th:object="${staff}">
-	
-	<img th:src="@{|img/{photo}|}"> 
-	<hr>
-	
-	Id:
-	<b th:text="{id}"></b>
-</div>

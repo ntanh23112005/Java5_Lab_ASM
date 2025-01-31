@@ -1,3 +1,0 @@
-<ul>
-	<li th:text="${id}"></li>
-</ul>

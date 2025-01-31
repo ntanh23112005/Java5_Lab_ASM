@@ -1,8 +1,0 @@
-<ul>
-	<li th:text="${id}"></li>
-	<li th:text="${name}"></li>
-	<li th:text="${gender}"></li>
-	<li th:text="${birthday}"></li>
-	<img th:src="@{|images/${photo}|}"></img>
-	<li th:text="${salary}"></li>
-</ul>

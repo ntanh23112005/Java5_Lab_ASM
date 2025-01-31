@@ -1,8 +1,0 @@
-<ul>
-	<li th:text="${id}"></li>
-	<li th:text="${id}"></li>
-	<li th:text="${id}"></li>
-	<li th:text="${id}"></li>
-	<li th:text="${id}"></li>
-	<li th:text="${id}"></li>
-</ul>

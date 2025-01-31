@@ -1,9 +1,0 @@
-<div th:each="staff, st:${list}">
-	<img th:src="@{|/img/${staff.photo}|}" style="width: 40px; height: 40px;">
-	<b th:text="@{|${staff.count}|}"></b>
-	<b th:text="${#strings.capitalizeWords(staff.fullname)}"></b>,
-	$<b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
-	<th:block th:if="${!st.last}">
-		<hr>
-	</th:block>
-</div>
