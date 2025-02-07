@@ -1,0 +1,101 @@
+<html>
+
+<head>
+	<style>
+		/* Định dạng thanh menu */
+		.menu-bar {
+			display: flex;
+			height: 90px;
+			background-color: #ffffff;
+			box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+			padding: 10px;
+			margin-bottom: 30px;
+            justify-content: space-between;
+			align-items: baseline;
+			font-size: 20px;
+		}
+
+		.menu-items {
+			position: relative;
+			/* Cần thiết cho dropdown */
+			color: #000000;
+			text-decoration: none;
+			
+			margin-right: 10px;
+			padding: 10px 20px;
+			display: block;
+		}
+
+		.menu-items:hover {
+			color: #e0c682;
+		}
+
+		/* Dropdown container */
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		/* Nội dung dropdown (ẩn mặc định) */
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: white;
+			min-width: 150px;
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+		}
+
+		/* Các mục trong dropdown */
+		.dropdown-content a {
+			color: black;
+			padding: 10px;
+			display: block;
+			text-decoration: none;
+		}
+
+		.dropdown-content a:hover {
+			color: #e0c682;
+		}
+
+		/* Hiển thị dropdown khi hover vào mục chính */
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+	</style>
+</head>
+
+
+<body>
+	<nav class="menu-bar">
+        <img style="width: 100px; height: 60px; " th:src="@{|/img/logo_noback.png|}" alt=""> <br>
+		<a href="/home/index" class="menu-items">Trang chủ</a>
+
+		<!-- Dropdown Thương hiệu -->
+		<div class="dropdown">
+			<a href="#" class="menu-items">Thương hiệu</a>
+			<div class="dropdown-content">
+				<a href="#">Casio</a>
+				<a href="#">Rolex</a>
+				<a href="#">Seiko</a>
+			</div>
+		</div>
+
+		<a href="#" class="menu-items">Đồng hồ nam</a>
+		<a href="#" class="menu-items">Đồng hồ nữ</a>
+		<a href="#" class="menu-items">Giới thiệu</a>
+
+		<!-- Dropdown Ngôn ngữ -->
+		<div class="dropdown">
+			<a href="#" class="menu-items">Ngôn ngữ</a>
+			<div class="dropdown-content">
+				<a href="#">Tiếng Việt</a>
+				<a href="#">English</a>
+			</div>
+		</div>
+
+    </nav>
+</body>
+
+   
+    </html>
