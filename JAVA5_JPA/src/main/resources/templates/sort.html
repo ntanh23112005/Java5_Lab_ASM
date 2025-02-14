@@ -1,0 +1,10 @@
+<h3>SORT DEMO</h3>
+<table border="1" style="width:100%">
+<th:block th:each="e, s: ${list}">
+	<tr>
+		<td th:text="${s.count}">Số TT</td>
+		<td th:text="${e.name}">Tên sản phẩm</td>
+		<td th:text="${e.unitPrice}">Đơn giá</td>
+	</tr>
+</th:block>
+</table>

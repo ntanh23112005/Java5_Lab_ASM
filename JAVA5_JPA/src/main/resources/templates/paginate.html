@@ -1,0 +1,23 @@
+<h3>PAGINATION & SORT DEMO</h3>
+<table border="1" style="width:100%">
+<th:block th:each="e, s: ${page.content}">
+	<tr>
+		<td th:text="${s.count}">Số TT</td>
+		<td th:text="${e.name}">Tên sản phẩm</td>
+		<td th:text="${e.unitPrice}">Đơn giá</td>
+	</tr>
+</th:block>
+</table>
+<hr>
+<a th:href="@{|/product/page/0|}">First</a>
+<a th:href="@{|/product/page/${page.number - 1}|}">Prev</a>
+<a th:href="@{|/product/page/${page.number + 1}|}">Next</a>
+<a th:href="@{|/product/page/${page.totalPages - 1}|}">Last</a>
+<hr>
+<ul>
+	<li>Page Number: <b th:text="${page.number}">0</b></li>
+	<li>Page Size: <b th:text="${page.size}">0</b></li>
+	<li>Number of Elements: <b th:text="${page.numberOfElements}">0</b></li>
+	<li>Total Pages: <b th:text="${page.totalPages}">0</b></li>
+	<li>Total Elements: <b th:text="${page.totalElements}">0</b></li>
+</ul>

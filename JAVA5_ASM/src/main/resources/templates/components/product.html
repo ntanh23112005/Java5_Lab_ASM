@@ -1,17 +1,36 @@
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
+	<head>
+		<style>
+			.card {
+			    transition: all 0.3s ease-in-out !important;
+			    border-radius: 10px !important;
+			}
+
+			.card img {
+			    transition: transform 0.3s ease-in-out !important;
+			}
+
+			.card:hover img {
+			    transform: scale(1.1) !important;
+			}
+		</style>
+	</head>
+	<body>
 		<div th:fragment="product(name, price, img)">
-		    <div class="card">
-		        <img th:src="@{/img/{img}(img=${img})}" class="card-img-top" alt="Product Image">
-		        <div class="card-body">
-		            <h5 class="card-title" th:text="${name}"></h5>
-		            <p class="card-text text-danger fw-bold" th:text="${#numbers.formatInteger(price, 0, 'COMMA')} + ' đ'"></p>
-		            <button class="btn btn-primary">Mua ngay</button>
-		        </div>
-		    </div>
-		</div>
-    </body>
+				<div class="card border-0 h-100 d-flex flex-column">
+					<img th:src="@{/img/{img}(img=${img})}" class="card-img-top img-fluid"
+						style="height: 300px; object-fit: contain;" alt="Product Image">
+					<div class="card-body d-flex flex-column justify-content-between">
+						<h5 class="card-title text-truncate" th:text="${name}" style="max-width: 100%;"></h5>
+						<div class="d-flex justify-content-between align-items-center mt-3">
+							<p class="card-text text-danger fw-bold mb-0"
+								th:text="${#numbers.formatInteger(price, 0, 'COMMA')} + ' đ'"></p>
+							<button class="btn btn-primary btn-sm">Mua ngay</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</body>
 </html>
+	
