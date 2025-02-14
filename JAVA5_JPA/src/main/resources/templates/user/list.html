@@ -1,0 +1,12 @@
+<h3>USER LIST</h3>
+<table border="1" style="width:100%">
+<tr th:each="u : ${userList}">
+	<td th:text="${u.username}"></td>
+	<td th:text="${u.fullname}"></td>
+	<td th:text="${u.mobile}"></td>
+	<td>
+		<a th:href="@{|/user/find-by-id/${u.username}|}">Edit</a>
+		<a th:href="@{|/user/delete-by-id/${u.username}|}">Delete</a>
+	</td>
+</tr>
+</table>

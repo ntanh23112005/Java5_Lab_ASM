@@ -1,0 +1,23 @@
+<html th:fragment="view(title, content)">
+
+<head>
+	<title th:replace="${title}">TITLE</title>
+</head>
+
+<body>
+	<header>
+		<h1 th:text="#{header.name}">Online Shopping</h1>
+	</header>
+
+	<nav th:replace="~{/shared/menu}">Menu</nav>
+
+	<article th:replace="${content}">Content</article>
+
+	<footer>
+		<th:block th:utext="#{footer.copy}">
+			<hr>&copy; 2024 by FPT Polytechnic
+		</th:block>
+	</footer>
+</body>
+
+</html>

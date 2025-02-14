@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+		<div th:fragment="product(name, price, img)">
+		    <div class="card">
+		        <img th:src="@{/img/{img}(img=${img})}" class="card-img-top" alt="Product Image">
+		        <div class="card-body">
+		            <h5 class="card-title" th:text="${name}"></h5>
+		            <p class="card-text text-danger fw-bold" th:text="${#numbers.formatInteger(price, 0, 'COMMA')} + ' đ'"></p>
+		            <button class="btn btn-primary">Mua ngay</button>
+		        </div>
+		    </div>
+		</div>
+    </body>
+</html>

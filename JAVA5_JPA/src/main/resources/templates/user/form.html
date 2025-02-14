@@ -1,0 +1,25 @@
+<h3>USER EDITION</h3>
+<form th:object="${user}" method="post">
+	<ul>
+		<li>Username:
+			<input th:field="*{username}">
+		</li>
+		<li>Password:
+			<input th:field="*{password}">
+		</li>
+		<li>Fullname:
+			<input th:field="*{fullname}">
+		</li>
+		<li>Mobile:
+			<input th:field="*{mobile}">
+		</li>
+		<li>Photo:
+			<input th:field="*{photo}">
+		</li>
+		<li>Enabled?:
+			<input th:field="*{enabled}">
+		</li>
+	</ul>
+	<button formaction="/user/create">Create</button>
+	<button formaction="/user/update">Update</button>
+</form>
