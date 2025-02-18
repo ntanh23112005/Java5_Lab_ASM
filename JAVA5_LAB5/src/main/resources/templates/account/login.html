@@ -1,0 +1,10 @@
+<p th:text="${message}"></p>
+<form action="/account/login" method="post">
+	username: <br>
+	<input name="username" th:value="${@cookieService.getValue('us')}"> <br>
+	password: <br>
+	<input name="password" th:value="${@cookieService.getValue('pw')}"> <br>
+	<input name="remember" type="checkbox" value="true" th:checked="${@cookieService.get('us') != null}"> Remember me ?
+	<hr>
+	<button>Login</button>
+</form>

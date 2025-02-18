@@ -1,0 +1,8 @@
+<ul>
+    <th:block th:each="item: ${items}">
+        <li>
+            <span th:text="${item.name}"></span> ($<span th:text="${item.price}"></span>) ::
+            [<a th:href="@{|/cart/add/${item.id}|}">Add To Cart</a>]
+        </li>
+    </th:block>
+</ul>
