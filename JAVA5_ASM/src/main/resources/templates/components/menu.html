@@ -10,17 +10,14 @@
 			box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 			padding: 10px;
 			margin-bottom: 30px;
-            justify-content: space-between;
-			align-items: baseline;
+			justify-content: space-between;
+			align-items: center;
 			font-size: 20px;
 		}
 
 		.menu-items {
-			position: relative;
-			/* Cần thiết cho dropdown */
 			color: #000000;
 			text-decoration: none;
-			
 			margin-right: 10px;
 			padding: 10px 20px;
 			display: block;
@@ -30,13 +27,12 @@
 			color: #e0c682;
 		}
 
-		/* Dropdown container */
+		/* Dropdown chung */
 		.dropdown {
 			position: relative;
 			display: inline-block;
 		}
 
-		/* Nội dung dropdown (ẩn mặc định) */
 		.dropdown-content {
 			display: none;
 			position: absolute;
@@ -46,7 +42,6 @@
 			z-index: 1;
 		}
 
-		/* Các mục trong dropdown */
 		.dropdown-content a {
 			color: black;
 			padding: 10px;
@@ -58,20 +53,73 @@
 			color: #e0c682;
 		}
 
-		/* Hiển thị dropdown khi hover vào mục chính */
 		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		/* Avatar tròn */
+		.avatar {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			object-fit: cover;
+			cursor: pointer;
+			border: 2px solid #e0c682;
+		}
+
+		.account-container {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.account-name {
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.account-container {
+			position: relative;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			margin-right: 20px;
+		}
+
+		.account-container img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 2px solid #e0c682;
+		}
+
+		.account-container .dropdown-content {
+			position: absolute;
+			right: 0;
+			top: 100%;
+			min-width: 160px;
+			background-color: white;
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+			border-radius: 8px;
+			padding: 10px;
+			display: none;
+			z-index: 10;
+		}
+
+		.account-container:hover .dropdown-content,
+		.account-container .dropdown-content:hover {
 			display: block;
 		}
 	</style>
 </head>
 
-
 <body>
 	<nav class="menu-bar">
-        <img style="width: 100px; height: 60px; " th:src="@{|/img/logo_noback.png|}" alt=""> <br>
-		<a href="/home/index" class="menu-items">Trang chủ</a>
+		<img style="width: 100px; height: 60px;" th:src="@{|/img/logo_noback.png|}" alt="">
 
-		<!-- Dropdown Thương hiệu -->
+		<a href="/trang-chu" class="menu-items">Trang chủ</a>
+
 		<div class="dropdown">
 			<a href="#" class="menu-items">Thương hiệu</a>
 			<div class="dropdown-content">
@@ -85,7 +133,6 @@
 		<a href="#" class="menu-items">Đồng hồ nữ</a>
 		<a href="#" class="menu-items">Giới thiệu</a>
 
-		<!-- Dropdown Ngôn ngữ -->
 		<div class="dropdown">
 			<a href="#" class="menu-items">Ngôn ngữ</a>
 			<div class="dropdown-content">
@@ -94,8 +141,26 @@
 			</div>
 		</div>
 
-    </nav>
+		<!-- Avatar & Dropdown Tài khoản -->
+		<div class="dropdown account-container">
+			<img th:src="@{/img/user.png}" alt="Avatar" class="avatar">
+			<div class="dropdown-content">
+				<!-- Nếu đã đăng nhập -->
+				<th:block th:if="${session.user != null}">
+					<p class="account-name" th:text="${session.user.name}"></p>
+					<a href="/account/profile">Thông tin cá nhân</a>
+					<a href="/account/logout">Đăng xuất</a>
+				</th:block>
+
+				<!-- Nếu chưa đăng nhập -->
+				<th:block th:if="${session.user == null}">
+					<a href="/account/login">Đăng nhập</a>
+					<a href="/account/register">Đăng ký</a>
+				</th:block>
+			</div>
+		</div>
+
+	</nav>
 </body>
 
-   
-    </html>
+</html>

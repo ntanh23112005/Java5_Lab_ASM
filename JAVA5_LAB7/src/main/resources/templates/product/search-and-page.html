@@ -1,0 +1,35 @@
+<form action="/product/search-and-page" method="post">
+	<input name="keywords" th:value="${keywords}">
+	<button>Search</button>
+</form>
+<table border="1" style="width:100%">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<th:block th:each="item : ${page.content}">
+			<tr>
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.unitPrice}"></td>
+				<td th:text="${item.productDate}"></td>
+			</tr>
+		</th:block>
+	</tbody>
+</table>
+<a th:href="@{|/product/search-and-page?p=0|}">First</a>
+<a th:href="@{|/product/search-and-page?p=${page.number - 1}|}">Previous</a>
+<a th:href="@{|/product/search-and-page?p=${page.number + 1}|}">Next</a>
+<a th:href="@{|/product/search-and-page?p=${page.totalPages - 1}|}">Last</a>
+<ul>
+	<li>Số thực thể hiện tại: [[${page.numberOfElements}]]</li>
+	<li>Trang số: [[${page.number}]]</li>
+	<li>Kích thước trang: [[${page.size}]]</li>
+	<li>Tổng số thực thể: [[${page.totalElements}]]</li>
+	<li>Tổng số trang: [[${page.totalPages}]]</li>
+</ul>

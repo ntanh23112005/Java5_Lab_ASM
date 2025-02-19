@@ -1,0 +1,23 @@
+.btn-add-cart{
+    height: 40px;
+    width: auto;
+    padding: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffff;
+    background-color:#f5516c ;
+    border: none;
+    border-radius: 60px;
+}
+
+.btn-call-cart{
+    height: 40px;
+    width: auto;
+    padding: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffff;
+    background-color:#e0b443 ;
+    border: none;
+    border-radius: 60px;
+}

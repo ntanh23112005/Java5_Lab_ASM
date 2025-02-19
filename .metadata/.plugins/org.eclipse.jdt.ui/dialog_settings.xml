@@ -117,4 +117,11 @@
 		<item key="DIALOG_HEIGHT" value="663"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
+	<section name="NewJavaWorkingSetWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="82"/>
+		<item key="DIALOG_Y_ORIGIN" value="64"/>
+		<item key="DIALOG_WIDTH" value="812"/>
+		<item key="DIALOG_HEIGHT" value="676"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
 </section>

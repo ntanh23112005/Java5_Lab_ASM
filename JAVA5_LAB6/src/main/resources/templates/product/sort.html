@@ -1,0 +1,17 @@
+<h3>SORTING BY <th:block th:text="${param.field}"/></h3>
+<table border="1" style="width:100%">
+<tr>
+	<th><a href="/product/sort?field=id">Id</a></th>
+	<th><a href="/product/sort?field=name">Name</a></th>
+	<th><a href="/product/sort?field=unitPrice">Price</a></th>
+	<th><a href="/product/sort?field=productDate">Date</a></th>
+</tr>
+<th:block th:each="item: ${items}">
+	<tr>
+		<td th:text="${item.id}"></td>
+		<td th:text="${item.name}"></td>
+		<td th:text="${item.unitPrice}"></td>
+		<td th:text="${item.productDate}"></td>
+	</tr>
+</th:block>
+</table>
