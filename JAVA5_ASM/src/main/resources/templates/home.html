@@ -16,9 +16,14 @@
 
     <div class="row">
         <div class="col-3" th:each="p : ${products}">
-            <div th:insert="~{/components/product :: product(name=${p.name}, price=${p.price}, img=${p.img})}"></div>
+			<a th:href=@{|/chi-tiet-san-pham/${p.id}|} class="nav-items text-decoration-none">
+            <div th:insert="~{/components/product :: product(name=${p.name}, unitPrice=${p.unitPrice}, image=${p.image}, id=${p.id})}"></div>
+			</a>
         </div>
     </div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

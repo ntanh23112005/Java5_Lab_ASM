@@ -2,48 +2,96 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Đăng ký</title>
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Đăng ký</title>
+	<!-- Bootstrap 5 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card p-4 shadow" style="width: 450px;">
-            <h3 class="text-center fw-bold text-success">Đăng ký tài khoản</h3>
+	<div class="container d-flex justify-content-center align-items-center vh-100">
+		<div class="card p-4 shadow" style="width: 450px;">
+			<h3 class="text-center fw-bold text-success">Đăng ký tài khoản</h3>
 
+			<!-- Thông báo lỗi -->
+			<span>
+				<strong>
+					<p id="err" style="color: red;"></p>
+				</strong>
+			</span>
+			<!-- Thông báo lỗi -->
+			<div th:if="${error}" class="alert alert-danger text-center">
+				<span th:text="${error}"></span>
+			</div>
+			
+			<form action="/account/register" method="post" enctype="multipart/form-data">
+				<div class="mb-3">
+					<label class="form-label">Họ và tên</label>
+					<input type="text" name="fullname" class="form-control" placeholder="Nhập họ tên" required>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Email</label>
+					<input type="email" name="email" class="form-control" placeholder="Nhập email" required>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Số điện thoại</label>
+					<input type="text" name="mobile" class="form-control" placeholder="Nhập email" required>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Mật khẩu</label>
+					<input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Xác nhận mật khẩu</label>
+					<input type="password" name="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu"
+						required>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Ảnh Đại Diện</label>
+					<input type="file" class="form-control" name="photo" id="photoInput" accept="image/*">
+				</div>
+				<button type="submit" class="btn btn-success w-100" onclick="return checkInformation()">Đăng ký</button>
+			</form>
 
-            <form action="/account/register" method="post">
-                <div class="mb-3">
-                    <label class="form-label">Họ và tên</label>
-                    <input type="text" name="fullname" class="form-control" placeholder="Nhập họ tên" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Tên đăng nhập</label>
-                    <input type="text" name="username" class="form-control" placeholder="Nhập username" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Nhập email" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Mật khẩu</label>
-                    <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Xác nhận mật khẩu</label>
-                    <input type="password" name="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu" required>
-                </div>
-                <button type="submit" class="btn btn-success w-100">Đăng ký</button>
-            </form>
+			<p class="text-center mt-3">
+				Đã có tài khoản? <a href="/account/login" class="text-primary">Đăng nhập</a>
+			</p>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		function checkInformation() {
+			var fullname = document.querySelector('input[name="fullname"]').value;
+			var email = document.querySelector('input[name="email"]').value;
+			var password = document.querySelector('input[name="password"]').value;
+			var confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
+			const err = document.getElementById("err");
+			var nameRegex = /^[^\d]+$/;
+			if (!nameRegex.test(fullname)) {
+				err.innerText = "Tên không chứa kí tự số !";
+				return false;
+			}
 
-            <p class="text-center mt-3">
-                Đã có tài khoản? <a href="/account/login" class="text-primary">Đăng nhập</a>
-            </p>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+			var mobileRegex = /^[0-9]+$/;
+			if (!mobileRegex.test(mobile)) {
+				err.innerText = "Số điện thoại chỉ được chứa số !";
+				return false;
+			}
+
+			var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+			if (!emailRegex.test(email)) {
+				err.innerText = "Email không đúng định dạng !";
+				return false;
+			}
+
+			if (password !== confirmPassword) {
+				err.innerText = "Mật khẩu xác thực không khớp nhau !";
+				return false;
+			}
+
+			return true;
+		}
+	</script>
 </body>
 
 </html>

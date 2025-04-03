@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Suite1</th></tr>
+<tr><td><a href="#t0">testNG</a></td><td class="num">16</td><td class="num">0</td><td class="num">0</td><td class="num attn">4</td><td class="num">149</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite1</th></tr></tbody><tbody id="t0"><tr><th colspan="4">testNG &#8212; failed</th></tr><tr class="failedeven"><td rowspan="4">poly.java5.test.OrderTest</td><td><a href="#m0">testOrder_Fail_InvalidEmail</a></td><td rowspan="1">1743400902360</td><td rowspan="1">18</td></tr><tr class="failedeven"><td><a href="#m1">testOrder_Fail_InvalidPhoneNumber</a></td><td rowspan="1">1743400902395</td><td rowspan="1">3</td></tr><tr class="failedeven"><td><a href="#m2">testOrder_Fail_NoPaymentMethod</a></td><td rowspan="1">1743400902404</td><td rowspan="1">1</td></tr><tr class="failedeven"><td><a href="#m3">testOrder_Success</a></td><td rowspan="1">1743400902409</td><td rowspan="1">0</td></tr><tr><th colspan="4">testNG &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">poly.java5.test.CartTest</td><td><a href="#m4">testAddCart_Fail_ExceedStock</a></td><td rowspan="1">1743400902337</td><td rowspan="1">18</td></tr><tr class="passedeven"><td><a href="#m5">testAddCart_Success</a></td><td rowspan="1">1743400902358</td><td rowspan="1">8</td></tr><tr class="passedeven"><td><a href="#m6">testAddCart_Success_ExistingProduct</a></td><td rowspan="1">1743400902371</td><td rowspan="1">2</td></tr><tr class="passedeven"><td><a href="#m7">testDeleteCart_Success</a></td><td rowspan="1">1743400902386</td><td rowspan="1">2</td></tr><tr class="passedeven"><td><a href="#m8">testUpdateCart_Fail_UpdateToZero</a></td><td rowspan="1">1743400902395</td><td rowspan="1">2</td></tr><tr class="passedodd"><td rowspan="4">poly.java5.test.LoginTest</td><td><a href="#m9">testFindByUsernameAndPassword_Failure_BothInvalid</a></td><td rowspan="1">1743400902337</td><td rowspan="1">15</td></tr><tr class="passedodd"><td><a href="#m10">testFindByUsernameAndPassword_Failure_InvalidPassword</a></td><td rowspan="1">1743400902362</td><td rowspan="1">3</td></tr><tr class="passedodd"><td><a href="#m11">testFindByUsernameAndPassword_Failure_InvalidUsername</a></td><td rowspan="1">1743400902372</td><td rowspan="1">7</td></tr><tr class="passedodd"><td><a href="#m12">testFindByUsernameAndPassword_Success</a></td><td rowspan="1">1743400902386</td><td rowspan="1">16</td></tr><tr class="passedeven"><td rowspan="1">poly.java5.test.OrderTest</td><td><a href="#m13">testOrder_Fail_EmptyCart</a></td><td rowspan="1">1743400902338</td><td rowspan="1">17</td></tr><tr class="passedodd"><td rowspan="4">poly.java5.test.RegisterTest</td><td><a href="#m14">testRegister_Fail_EmailExists</a></td><td rowspan="1">1743400902337</td><td rowspan="1">15</td></tr><tr class="passedodd"><td><a href="#m15">testRegister_Fail_InvalidEmailFormat</a></td><td rowspan="1">1743400902358</td><td rowspan="1">9</td></tr><tr class="passedodd"><td><a href="#m16">testRegister_Fail_InvalidPassword</a></td><td rowspan="1">1743400902387</td><td rowspan="1">2</td></tr><tr class="passedodd"><td><a href="#m17">testRegister_Success</a></td><td rowspan="1">1743400902395</td><td rowspan="1">1</td></tr><tr class="passedeven"><td rowspan="2">poly.java5.test.SearchTest</td><td><a href="#m18">testSearch_Fail</a></td><td rowspan="1">1743400902338</td><td rowspan="1">14</td></tr><tr class="passedeven"><td><a href="#m19">testSearch_Success</a></td><td rowspan="1">1743400902361</td><td rowspan="1">19</td></tr></tbody>
+</table>
+<h2>testNG</h2><h3 id="m0">poly.java5.test.OrderTest#testOrder_Fail_InvalidEmail</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng email&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidEmail(OrderTest.java:33)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">poly.java5.test.OrderTest#testOrder_Fail_InvalidPhoneNumber</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng SĐT&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidPhoneNumber(OrderTest.java:40)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">poly.java5.test.OrderTest#testOrder_Fail_NoPaymentMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.opentest4j.AssertionFailedError: expected: &lt;Hãy chọn phương thức thanh toán&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_NoPaymentMethod(OrderTest.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">poly.java5.test.OrderTest#testOrder_Success</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.opentest4j.AssertionFailedError: expected: &lt;Đặt thành công&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Success(OrderTest.java:26)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">poly.java5.test.CartTest#testAddCart_Fail_ExceedStock</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">poly.java5.test.CartTest#testAddCart_Success</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">poly.java5.test.CartTest#testAddCart_Success_ExistingProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">poly.java5.test.CartTest#testDeleteCart_Success</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">poly.java5.test.CartTest#testUpdateCart_Fail_UpdateToZero</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">poly.java5.test.LoginTest#testFindByUsernameAndPassword_Failure_BothInvalid</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">poly.java5.test.LoginTest#testFindByUsernameAndPassword_Failure_InvalidPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">poly.java5.test.LoginTest#testFindByUsernameAndPassword_Failure_InvalidUsername</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">poly.java5.test.LoginTest#testFindByUsernameAndPassword_Success</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">poly.java5.test.OrderTest#testOrder_Fail_EmptyCart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">poly.java5.test.RegisterTest#testRegister_Fail_EmailExists</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">poly.java5.test.RegisterTest#testRegister_Fail_InvalidEmailFormat</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">poly.java5.test.RegisterTest#testRegister_Fail_InvalidPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m17">poly.java5.test.RegisterTest#testRegister_Success</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m18">poly.java5.test.SearchTest#testSearch_Fail</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m19">poly.java5.test.SearchTest#testSearch_Success</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

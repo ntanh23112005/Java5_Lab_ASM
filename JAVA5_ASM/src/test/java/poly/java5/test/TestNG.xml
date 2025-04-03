@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<suite name = "Suite1" parallel="classes">
+
+    <test name = "testNG">
+        <classes>
+            <class name = "poly.java5.test.LoginTest"/>
+            <class name = "poly.java5.test.RegisterTest"/>
+            <class name = "poly.java5.test.SearchTest"/>
+            <class name = "poly.java5.test.CartTest"/>
+            <class name = "poly.java5.test.OrderTest"/>
+        </classes>
+    </test>
+
+</suite>

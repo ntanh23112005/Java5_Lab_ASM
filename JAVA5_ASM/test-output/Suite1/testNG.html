@@ -1,0 +1,341 @@
+<html>
+<head>
+<title>TestNG:  testNG</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>testNG</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>16/4/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Mar 31 13:01:42 ICT 2025</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (149 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='poly.java5.test.OrderTest.testOrder_Fail_NoPaymentMethod()'><b>testOrder_Fail_NoPaymentMethod</b><br>Test class: poly.java5.test.OrderTest</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: expected: &lt;Hãy chọn phương thức thanh toán&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_NoPaymentMethod(OrderTest.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1981570201", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1981570201'><pre>org.opentest4j.AssertionFailedError: expected: &lt;Hãy chọn phương thức thanh toán&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_NoPaymentMethod(OrderTest.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>0</td>
+<td>poly.java5.test.OrderTest@f0da945</td></tr>
+<tr>
+<td title='poly.java5.test.OrderTest.testOrder_Fail_InvalidEmail()'><b>testOrder_Fail_InvalidEmail</b><br>Test class: poly.java5.test.OrderTest</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng email&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidEmail(OrderTest.java:33)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1839160472", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1839160472'><pre>org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng email&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidEmail(OrderTest.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>0</td>
+<td>poly.java5.test.OrderTest@f0da945</td></tr>
+<tr>
+<td title='poly.java5.test.OrderTest.testOrder_Fail_InvalidPhoneNumber()'><b>testOrder_Fail_InvalidPhoneNumber</b><br>Test class: poly.java5.test.OrderTest</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng SĐT&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidPhoneNumber(OrderTest.java:40)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace984222663", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace984222663'><pre>org.opentest4j.AssertionFailedError: expected: &lt;Vui lòng điền đúng SĐT&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Fail_InvalidPhoneNumber(OrderTest.java:40)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>0</td>
+<td>poly.java5.test.OrderTest@f0da945</td></tr>
+<tr>
+<td title='poly.java5.test.OrderTest.testOrder_Success()'><b>testOrder_Success</b><br>Test class: poly.java5.test.OrderTest</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: expected: &lt;Đặt thành công&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Success(OrderTest.java:26)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace482348574", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace482348574'><pre>org.opentest4j.AssertionFailedError: expected: &lt;Đặt thành công&gt; but was: &lt;Giỏ hàng trống, hãy mua sắm thêm&gt;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at poly.java5.test.OrderTest.testOrder_Success(OrderTest.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>0</td>
+<td>poly.java5.test.OrderTest@f0da945</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='poly.java5.test.RegisterTest.testRegister_Success()'><b>testRegister_Success</b><br>Test class: poly.java5.test.RegisterTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.RegisterTest@3c7f66c4</td></tr>
+<tr>
+<td title='poly.java5.test.CartTest.testAddCart_Success()'><b>testAddCart_Success</b><br>Test class: poly.java5.test.CartTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.CartTest@17497425</td></tr>
+<tr>
+<td title='poly.java5.test.SearchTest.testSearch_Fail()'><b>testSearch_Fail</b><br>Test class: poly.java5.test.SearchTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.SearchTest@194bcebf</td></tr>
+<tr>
+<td title='poly.java5.test.LoginTest.testFindByUsernameAndPassword_Failure_InvalidUsername()'><b>testFindByUsernameAndPassword_Failure_InvalidUsername</b><br>Test class: poly.java5.test.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.LoginTest@6da21078</td></tr>
+<tr>
+<td title='poly.java5.test.OrderTest.testOrder_Fail_EmptyCart()'><b>testOrder_Fail_EmptyCart</b><br>Test class: poly.java5.test.OrderTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.OrderTest@f0da945</td></tr>
+<tr>
+<td title='poly.java5.test.LoginTest.testFindByUsernameAndPassword_Failure_InvalidPassword()'><b>testFindByUsernameAndPassword_Failure_InvalidPassword</b><br>Test class: poly.java5.test.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.LoginTest@6da21078</td></tr>
+<tr>
+<td title='poly.java5.test.CartTest.testAddCart_Success_ExistingProduct()'><b>testAddCart_Success_ExistingProduct</b><br>Test class: poly.java5.test.CartTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.CartTest@17497425</td></tr>
+<tr>
+<td title='poly.java5.test.RegisterTest.testRegister_Fail_InvalidEmailFormat()'><b>testRegister_Fail_InvalidEmailFormat</b><br>Test class: poly.java5.test.RegisterTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.RegisterTest@3c7f66c4</td></tr>
+<tr>
+<td title='poly.java5.test.RegisterTest.testRegister_Fail_InvalidPassword()'><b>testRegister_Fail_InvalidPassword</b><br>Test class: poly.java5.test.RegisterTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.RegisterTest@3c7f66c4</td></tr>
+<tr>
+<td title='poly.java5.test.RegisterTest.testRegister_Fail_EmailExists()'><b>testRegister_Fail_EmailExists</b><br>Test class: poly.java5.test.RegisterTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.RegisterTest@3c7f66c4</td></tr>
+<tr>
+<td title='poly.java5.test.LoginTest.testFindByUsernameAndPassword_Failure_BothInvalid()'><b>testFindByUsernameAndPassword_Failure_BothInvalid</b><br>Test class: poly.java5.test.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.LoginTest@6da21078</td></tr>
+<tr>
+<td title='poly.java5.test.CartTest.testAddCart_Fail_ExceedStock()'><b>testAddCart_Fail_ExceedStock</b><br>Test class: poly.java5.test.CartTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.CartTest@17497425</td></tr>
+<tr>
+<td title='poly.java5.test.CartTest.testDeleteCart_Success()'><b>testDeleteCart_Success</b><br>Test class: poly.java5.test.CartTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.CartTest@17497425</td></tr>
+<tr>
+<td title='poly.java5.test.CartTest.testUpdateCart_Fail_UpdateToZero()'><b>testUpdateCart_Fail_UpdateToZero</b><br>Test class: poly.java5.test.CartTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.CartTest@17497425</td></tr>
+<tr>
+<td title='poly.java5.test.SearchTest.testSearch_Success()'><b>testSearch_Success</b><br>Test class: poly.java5.test.SearchTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.SearchTest@194bcebf</td></tr>
+<tr>
+<td title='poly.java5.test.LoginTest.testFindByUsernameAndPassword_Success()'><b>testFindByUsernameAndPassword_Success</b><br>Test class: poly.java5.test.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>poly.java5.test.LoginTest@6da21078</td></tr>
+</table><p>
+</body>
+</html>

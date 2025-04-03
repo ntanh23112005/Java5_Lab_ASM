@@ -1,0 +1,200 @@
+<html th:replace="~{/admin/layout-admin::view(~{::title},~{::.table-product})}">
+
+<head>
+	<title>User Management</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="table-product">
+	<div class="container my-5">
+		<h2 class="text-center mb-4">Danh Sách người dùng</h2>
+
+		<!-- Nút Thêm Người Dùng Mới -->
+		<button class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#addUserModal">Thêm người
+			dùng</button>
+
+		<table class="table table-bordered table-striped text-center">
+			<thead class="table-dark">
+				<tr>
+					<th>Username</th>
+					<th>Họ và tên</th>
+					<th>Hình ảnh</th>
+					<th>Số điện thoại</th>
+					<th>Vai trò</th>
+					<th>Kích hoạt</th>
+					<th>Trạng thái</th>
+					<th colspan="2">Hành động</th>
+				</tr>
+			</thead>
+			<tbody th:each="p : ${users}">
+				<tr th:each="authority : ${p.authorities}">
+					<td th:text="${p.username}"></td>
+					<td th:text="${p.fullname}"></td>
+					<td><img th:src="@{|/img/${p.photo}|}" style="height: 45px;" alt="Đồng hồ Rolex" class="img-fluid">
+					</td>
+					<td th:text="${p.mobile}"></td>
+					<td>
+						<span th:text="${authority.role.name}"> </span>
+					</td>
+					<td th:text="${p.enabled ? 'Đã kích hoạt' : 'Chưa kích hoạt'}"></td>
+					<td th:text="${p.trangThai ? 'Còn hoạt động' : 'Tạm khóa'}"></td>
+					<td>
+						<!-- Nút Sửa Thông Tin Người Dùng -->
+						<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal"
+							onclick="editUser(this)" th:data-username="${p.username}" th:data-fullname="${p.fullname}"
+							th:data-mobile="${p.mobile}" th:data-role="${authority.role.name}"
+							th:data-enabled="${p.enabled}">Chỉnh sửa</button>
+					</td>
+					<td>
+						<a th:href="@{|/admin/delete-user/${p.username}|}" class="btn btn-danger">Tạm khóa</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Modal Thêm Người Dùng Mới -->
+		<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addUserModalLabel">Thêm người dùng mới</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="addUserForm" action="/admin/user/add" method="POST" enctype="multipart/form-data">
+							<div class="mb-3">
+								<label for="usernameAdd" class="form-label">Tên người dùng</label>
+								<input type="text" class="form-control" id="usernameAdd" name="username" required>
+							</div>
+							<div class="mb-3">
+								<label for="fullnameAdd" class="form-label">Họ và tên</label>
+								<input type="text" class="form-control" id="fullnameAdd" name="fullname" required>
+							</div>
+							<div class="mb-3">
+								<label for="photoAdd" class="form-label">Hình ảnh</label>
+								<input type="file" class="form-control" id="photoAdd" name="photo">
+							</div>
+							<div class="mb-3">
+								<label for="mobileAdd" class="form-label">Số điện thoại</label>
+								<input type="text" class="form-control" id="mobileAdd" name="mobile" required>
+							</div>
+							<div class="mb-3">
+								<label for="roleAdd" class="form-label">Vai trò</label>
+								<select class="form-control" id="roleAdd" name="role" required>
+									<option value="R001">Admin</option>
+									<option value="R002">User</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="enabledAdd" class="form-label">Kích hoạt</label>
+								<select class="form-control" id="enabledAdd" name="enabled" required>
+									<option value="true">Đã kích hoạt</option>
+									<option value="false">Chưa kích hoạt</option>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-primary">Thêm người dùng</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal Sửa Thông Tin Người Dùng -->
+		<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editUserModalLabel">Sửa thông tin người dùng</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="editUserForm" action="/admin/user/update" method="POST" enctype="multipart/form-data">
+							<div class="mb-3">
+								<label for="usernameEdit" class="form-label">Tên người dùng</label>
+								<input type="text" class="form-control" id="usernameEdit" name="username" readonly>
+							</div>
+							<div class="mb-3">
+								<label for="fullnameEdit" class="form-label">Họ và tên</label>
+								<input type="text" class="form-control" id="fullnameEdit" name="fullname" required>
+							</div>
+							<div class="mb-3">
+								<label for="photoEdit" class="form-label">Hình ảnh</label>
+								<input type="file" class="form-control" id="photoEdit" name="photo">
+							</div>
+							<div class="mb-3">
+								<label for="mobileEdit" class="form-label">Số điện thoại</label>
+								<input type="text" class="form-control" id="mobileEdit" name="mobile" required>
+							</div>
+							<div class="mb-3">
+								<label for="roleAdd" class="form-label">Vai trò</label>
+								<select class="form-control" id="roleAdd" name="role" required>
+									<option value="R001">Admin</option>
+									<option value="R002">User</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="enabledEdit" class="form-label">Kích hoạt</label>
+								<input type="text" class="form-control" id="enabledEdit" name="enabled" required
+									readonly>
+							</div>
+							<div class="mb-3">
+								<label for="roleAdd" class="form-label">Trạng thái</label>
+								<select class="form-control" id="roleAdd" name="trangThai" required>
+									<option value="true">Còn hoạt động</option>
+									<option value="false">Tạm khóa</option>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+		<script>
+			function editUser(button) {
+				// Lấy dữ liệu từ các thuộc tính data-* của nút nhấn
+				const username = button.getAttribute('data-username');
+				const fullname = button.getAttribute('data-fullname');
+				const mobile = button.getAttribute('data-mobile');
+				const roles = button.getAttribute('data-role'); // Lấy danh sách vai trò
+				const enabled = button.getAttribute('data-enabled');
+
+				// In giá trị ra console để kiểm tra
+				console.log('Username: ' + username);
+				console.log('Fullname: ' + fullname);
+				console.log('Mobile: ' + mobile);
+				console.log('Roles: ' + roles);
+				console.log('Enabled: ' + enabled);
+
+				// Điền dữ liệu vào form của modal
+				document.getElementById('usernameEdit').value = username;
+				document.getElementById('fullnameEdit').value = fullname;
+				document.getElementById('mobileEdit').value = mobile;
+				document.getElementById('enabledEdit').value = enabled; // Điền giá trị vào input readonly
+
+				// Xử lý danh sách vai trò
+				const roleSelect = document.getElementById('roleEdit');
+				roleSelect.innerHTML = ''; // Xóa các option hiện tại
+
+				// Tách danh sách vai trò thành mảng
+				const roleArray = roles.split(',');
+
+				// Thêm các vai trò vào select
+				roleArray.forEach(role => {
+					const option = document.createElement('option');
+					option.value = role.trim();
+					option.text = role.trim();
+					roleSelect.appendChild(option);
+				});
+			}
+
+		</script>
+</body>
+
+</html>

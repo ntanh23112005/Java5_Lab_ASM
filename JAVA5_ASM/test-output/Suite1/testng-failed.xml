@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Failed suite [Suite1]">
+  <test thread-count="5" parallel="classes" name="testNG(failed)">
+    <classes>
+      <class name="poly.java5.test.OrderTest">
+        <methods>
+          <include name="testOrder_Success"/>
+          <include name="testOrder_Fail_InvalidEmail"/>
+          <include name="testOrder_Fail_NoPaymentMethod"/>
+          <include name="setUp"/>
+          <include name="testOrder_Fail_InvalidPhoneNumber"/>
+        </methods>
+      </class> <!-- poly.java5.test.OrderTest -->
+    </classes>
+  </test> <!-- testNG(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html th:fragment="view(title, content)">
+
+<head>
+	<meta charset="UTF-8">
+    <title th:replace="${title}">Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			height: 100vh;
+		}
+
+		.sidebar {
+			width: 250px;
+			background-color: #f8f9fa;
+			border-right: 1px solid #ddd;
+			height: 100vh;
+		}
+
+		.main-content {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+
+		.block-bar {
+			position: fixed;
+			top: 0;
+			left: 250px; /* Đẩy ngang bằng sidebar */
+			width: calc(100% - 250px);
+			height: 60px;
+			background: white;
+			border-bottom: 2px solid #f0f1f2;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 20px;
+			z-index: 1000;
+		}
+
+		.content {
+			flex-grow: 1;
+			padding: 20px;
+			margin-top: 60px; /* Để tránh bị che bởi block-bar */
+			overflow-y: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<div th:replace="~{/admin/components_admin/menu-admin}"></div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="main-content">
+		<!-- Thanh block-bar cố định trên cùng -->
+		<div class="block-bar">
+			<div class="block-bar-text fw-bold">Admin Dashboard</div>
+			<div class="">
+				<p class="" style="margin-bottom: 0;">Xin chào <span>Nguyễn Thế Anh</span></p>
+			</div>
+		</div>
+
+		<!-- Nội dung bên dưới -->
+		<div class="content">
+			<div class="row" th:replace="${content}">
+                content
+            </div>
+		</div>
+	</div>
+</body>
+
+</html>

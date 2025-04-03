@@ -2,32 +2,100 @@ package poly.java5.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import poly.java5.model.Product;
+import jakarta.servlet.http.HttpSession;
+import poly.java5.entity.Order;
+import poly.java5.entity.Product;
+import poly.java5.entity.User;
+import poly.java5.service.OrderService;
+import poly.java5.service.ProductService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	ProductService productService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	HttpSession session;
+	
+	@RequestMapping("/test")
+	@ResponseBody
+	public void test() {
+		List<Product> list = productService.findByTrangThaiTrue();
+		list.forEach(p ->{
+			System.out.println(p.getName());
+		});
+	}
+	
 	@RequestMapping("/trang-chu")
 	public String index(Model model) {
-		List<Product> products = List.of(new Product("Đồng Hồ Nam Orient Star Skeleton Mặt Hề RK-AV0114E", 15000000, "nambomba.jpg"),
-				new Product("Đồng Hồ Nam Hublot Classic Fusion Automatic Titanium King Gold Bezel", 23000000, "donghonamhubot.jpg"),
-				new Product("Đồng Hồ Nam Orient Star Skeleton Mặt Hề RK-AV0114E", 21000000, "nambomba.jpg"),
-				new Product("Đồng Hồ Nam Hublot Classic Fusion Automatic Titanium King Gold Bezel", 32000000, "donghonamhubot.jpg"));
-		System.out.println(products);
-		model.addAttribute("products", products);
-		return "home";
+		List<Product> products = productService.findByTrangThaiTrue();
+		
+		User user = (User)session.getAttribute("loggedUser");
+		if(user != null) {
+			// Kiểm tra sự tồn tại của đơn hàng chưa hoàn tất (OrderStatus = 1)
+	        Order order = orderService.findByUsernameAndOrderStatus(user.getUsername(), 1);
+
+	        // Nếu chưa có đơn hàng, tạo mới
+	        if (order == null) {
+	            order = Order.builder()
+	                    .orderStatus(1)
+	                    .user(user)
+	                    .shippingAddress("Chưa cập nhật")
+	                    .trangThai(true)
+	                    .build();
+	            orderService.saveOrder(order);
+	        }
+	        model.addAttribute("products", products);
+			return "home";
+		}else {
+			model.addAttribute("products", products);
+			return "home";
+		}
+        
 	}
 	
 	@RequestMapping("/gio-hang")
-	public String cartView() {
+	public String cartView(Model model) {
+		
+		User user = (User)session.getAttribute("loggedUser");
+		
+		 // Kiểm tra sự tồn tại của đơn hàng chưa hoàn tất (OrderStatus = 1)
+        Order order = orderService.findByUsernameAndOrderStatus(user.getUsername(), 1);
+
+        // Nếu chưa có đơn hàng, tạo mới
+        if (order == null) {
+            order = Order.builder()
+                    .orderStatus(1)
+                    .user(user)
+                    .shippingAddress("Chưa cập nhật")
+                    .trangThai(true)
+                    .build();
+            orderService.saveOrder(order);
+        }
+		
+		model.addAttribute("order", order);
 		return "cart";
 	}
 	
-	@RequestMapping("/chi-tiet-san-pham")
-	public String detail() {
+	@RequestMapping("/chi-tiet-san-pham/{id}")
+	public String detail(Model model,
+					@PathVariable("id") int id) {
+		Product p = productService.findByIdProduct(id);
+		System.out.println(p);
+		System.out.println("UnitPrice: " + p.getUnitPrice());
+		model.addAttribute("p",p);
 		return "detail";
 	}
+	
 }

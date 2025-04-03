@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="20" passed="16" failed="4" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-31T13:01:42 ICT" name="Suite1" finished-at="2025-03-31T13:01:42 ICT" duration-ms="149">
+    <groups>
+    </groups>
+    <test started-at="2025-03-31T13:01:42 ICT" name="testNG" finished-at="2025-03-31T13:01:42 ICT" duration-ms="149">
+      <class name="poly.java5.test.SearchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.SearchTest@194bcebf]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSearch_Fail()[pri:0, instance:poly.java5.test.SearchTest@194bcebf]" started-at="2025-03-31T13:01:42 ICT" name="testSearch_Fail" finished-at="2025-03-31T13:01:42 ICT" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearch_Fail -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.SearchTest@194bcebf]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSearch_Success()[pri:0, instance:poly.java5.test.SearchTest@194bcebf]" started-at="2025-03-31T13:01:42 ICT" name="testSearch_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="19" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearch_Success -->
+      </class> <!-- poly.java5.test.SearchTest -->
+      <class name="poly.java5.test.OrderTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="16" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testOrder_Fail_EmptyCart()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="testOrder_Fail_EmptyCart" finished-at="2025-03-31T13:01:42 ICT" duration-ms="17" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOrder_Fail_EmptyCart -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testOrder_Fail_InvalidEmail()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="testOrder_Fail_InvalidEmail" finished-at="2025-03-31T13:01:42 ICT" duration-ms="18" status="FAIL">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[expected: <Vui lòng điền đúng email> but was: <Giỏ hàng trống, hãy mua sắm thêm>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: expected: <Vui lòng điền đúng email> but was: <Giỏ hàng trống, hãy mua sắm thêm>
+at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+at poly.java5.test.OrderTest.testOrder_Fail_InvalidEmail(OrderTest.java:33)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOrder_Fail_InvalidEmail -->
+        <test-method signature="testOrder_Fail_InvalidPhoneNumber()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="testOrder_Fail_InvalidPhoneNumber" finished-at="2025-03-31T13:01:42 ICT" duration-ms="3" status="FAIL">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[expected: <Vui lòng điền đúng SĐT> but was: <Giỏ hàng trống, hãy mua sắm thêm>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: expected: <Vui lòng điền đúng SĐT> but was: <Giỏ hàng trống, hãy mua sắm thêm>
+at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+at poly.java5.test.OrderTest.testOrder_Fail_InvalidPhoneNumber(OrderTest.java:40)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOrder_Fail_InvalidPhoneNumber -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testOrder_Fail_NoPaymentMethod()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="testOrder_Fail_NoPaymentMethod" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="FAIL">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[expected: <Hãy chọn phương thức thanh toán> but was: <Giỏ hàng trống, hãy mua sắm thêm>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: expected: <Hãy chọn phương thức thanh toán> but was: <Giỏ hàng trống, hãy mua sắm thêm>
+at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+at poly.java5.test.OrderTest.testOrder_Fail_NoPaymentMethod(OrderTest.java:54)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOrder_Fail_NoPaymentMethod -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testOrder_Success()[pri:0, instance:poly.java5.test.OrderTest@f0da945]" started-at="2025-03-31T13:01:42 ICT" name="testOrder_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="0" status="FAIL">
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[expected: <Đặt thành công> but was: <Giỏ hàng trống, hãy mua sắm thêm>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: expected: <Đặt thành công> but was: <Giỏ hàng trống, hãy mua sắm thêm>
+at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+at poly.java5.test.OrderTest.testOrder_Success(OrderTest.java:26)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOrder_Success -->
+      </class> <!-- poly.java5.test.OrderTest -->
+      <class name="poly.java5.test.CartTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddCart_Fail_ExceedStock()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="testAddCart_Fail_ExceedStock" finished-at="2025-03-31T13:01:42 ICT" duration-ms="18" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddCart_Fail_ExceedStock -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddCart_Success()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="testAddCart_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddCart_Success -->
+        <test-method signature="testAddCart_Success_ExistingProduct()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="testAddCart_Success_ExistingProduct" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddCart_Success_ExistingProduct -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testDeleteCart_Success()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="testDeleteCart_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteCart_Success -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testUpdateCart_Fail_UpdateToZero()[pri:0, instance:poly.java5.test.CartTest@17497425]" started-at="2025-03-31T13:01:42 ICT" name="testUpdateCart_Fail_UpdateToZero" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateCart_Fail_UpdateToZero -->
+      </class> <!-- poly.java5.test.CartTest -->
+      <class name="poly.java5.test.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFindByUsernameAndPassword_Failure_BothInvalid()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="testFindByUsernameAndPassword_Failure_BothInvalid" finished-at="2025-03-31T13:01:42 ICT" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUsernameAndPassword_Failure_BothInvalid -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFindByUsernameAndPassword_Failure_InvalidPassword()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="testFindByUsernameAndPassword_Failure_InvalidPassword" finished-at="2025-03-31T13:01:42 ICT" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUsernameAndPassword_Failure_InvalidPassword -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFindByUsernameAndPassword_Failure_InvalidUsername()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="testFindByUsernameAndPassword_Failure_InvalidUsername" finished-at="2025-03-31T13:01:42 ICT" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUsernameAndPassword_Failure_InvalidUsername -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFindByUsernameAndPassword_Success()[pri:0, instance:poly.java5.test.LoginTest@6da21078]" started-at="2025-03-31T13:01:42 ICT" name="testFindByUsernameAndPassword_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="16" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUsernameAndPassword_Success -->
+      </class> <!-- poly.java5.test.LoginTest -->
+      <class name="poly.java5.test.RegisterTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegister_Fail_EmailExists()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="testRegister_Fail_EmailExists" finished-at="2025-03-31T13:01:42 ICT" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegister_Fail_EmailExists -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegister_Fail_InvalidEmailFormat()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="testRegister_Fail_InvalidEmailFormat" finished-at="2025-03-31T13:01:42 ICT" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegister_Fail_InvalidEmailFormat -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegister_Fail_InvalidPassword()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="testRegister_Fail_InvalidPassword" finished-at="2025-03-31T13:01:42 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegister_Fail_InvalidPassword -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="setUp" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRegister_Success()[pri:0, instance:poly.java5.test.RegisterTest@3c7f66c4]" started-at="2025-03-31T13:01:42 ICT" name="testRegister_Success" finished-at="2025-03-31T13:01:42 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegister_Success -->
+      </class> <!-- poly.java5.test.RegisterTest -->
+    </test> <!-- testNG -->
+  </suite> <!-- Suite1 -->
+</testng-results>

@@ -1,0 +1,183 @@
+<html th:replace="~{/admin/layout-admin::view(~{::title},~{::.table-product})}">
+
+<head>
+	<title>Product Management</title>
+	<!-- Thêm CSS Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="table-product">
+	<div class="container my-5">
+		<!-- Nút thêm sản phẩm mới -->
+		<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
+			Thêm sản phẩm mới
+		</button>
+		<h2 class="text-center mb-4">Danh Sách Sản Phẩm</h2>
+		<table class="table table-bordered table-striped text-center">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th>Tên sản phẩm</th>
+					<th>Hình ảnh</th>
+					<th>Giá</th>
+					<th>Thể loại</th>
+					<th>Số lượng còn</th>
+					<th colspan="2">Hành động</th>
+				</tr>
+			</thead>
+			<tbody th:each="p : ${products}">
+				<tr>
+					<td th:text="${p.id}">1</td>
+					<td th:text="${p.name}">Đồng hồ Rolex</td>
+					<td><img th:src="@{|/img/${p.image}|}" style="height: 45px;" alt="Đồng hồ Rolex" class="img-fluid">
+					</td>
+					<td th:text="${#numbers.formatDecimal(p.unitPrice , 0, 'COMMA', 0, 'POINT')} + 'đ'">50,000,000₫</td>
+					<td th:text="${p.category.name}"></td>
+					<td th:text="${p.inStock}"></td>
+					<td>
+						<!-- Nút chỉnh sửa mở modal -->
+						<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal"
+							th:data-id="${p.id}" th:data-name="${p.name}" th:data-image="${p.image}"
+							th:data-price="${p.unitPrice}" th:data-category="${p.category.id}"
+							th:data-stock="${p.inStock}">
+							Chỉnh sửa
+						</button>
+					</td>
+					<td>
+						<a th:href="@{|/admin/delete-product/${p.id}|}" class="btn btn-danger">Xóa</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- Modal Thêm sản phẩm mới -->
+	<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="addProductForm" action="/admin/product/add" method="post" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="newProductName" class="form-label">Tên sản phẩm</label>
+							<input type="text" class="form-control" id="newProductName" name="name" required>
+						</div>
+						<div class="mb-3">
+							<label for="newProductImage" class="form-label">Hình ảnh</label>
+							<input type="file" class="form-control" id="newProductImage" name="image" required>
+						</div>
+						<div class="mb-3">
+							<label for="newProductPrice" class="form-label">Giá</label>
+							<input type="number" class="form-control" id="newProductPrice" name="unitPrice" required>
+						</div>
+						<div class="mb-3">
+							<label for="newProductCategory" class="form-label">Thể loại</label>
+							<select class="form-control" id="newProductCategory" name="categoryId">
+								<option th:each="category : ${cateOptions}" th:value="${category[0]}"
+									th:text="${category[1]}"></option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="productDate" class="form-label">Ngày sản xuất</label>
+							<input type="date" class="form-control" id="productDate" name="productDate" required>
+						</div>
+						<div class="mb-3">
+							<label for="newProductPrice" class="form-label">Mô tả</label>
+							<input type="text" class="form-control" id="newProductPrice" name="description" required>
+						</div>
+						<div class="mb-3">
+							<label for="newProductInStock" class="form-label">Số lượng còn</label>
+							<input type="number" class="form-control" id="newProductInStock" name="inStock" required>
+						</div>
+						<button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Modal Chỉnh sửa sản phẩm -->
+	<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editProductModalLabel">Chỉnh sửa sản phẩm</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="editProductForm" action="/admin/product" method="POST" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="productId" class="form-label">Id sản phẩm</label>
+							<input type="text" class="form-control" id="productId" name="id" readonly>
+						</div>
+						<div class="mb-3">
+							<label for="productName" class="form-label">Tên sản phẩm</label>
+							<input type="text" class="form-control" id="productName" name="name">
+						</div>
+						<div class="mb-3">
+							<label for="productImage" class="form-label">Hình ảnh</label>
+							<input type="file" class="form-control" id="productImage" name="image">
+							<br>
+							<img id="currentImage" src="" style="max-height: 100px;" alt="Hình ảnh sản phẩm hiện tại">
+						</div>
+						<div class="mb-3">
+							<label for="productPrice" class="form-label">Giá</label>
+							<input type="number" class="form-control" id="productPrice" name="unitPrice">
+						</div>
+						<div class="mb-3">
+							<label for="productCategory" class="form-label">Thể loại</label>
+							<select class="form-control" id="productCategory" name="categoryId">
+								<option th:each="category : ${cateOptions}" name="categoryId" th:value="${category[0]}"
+									th:text="${category[1]}">
+								</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="productInStock" class="form-label">Số lượng còn</label>
+							<input type="number" class="form-control" id="productInStock" name="inStock">
+						</div>
+						<button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+	<script>
+		// Lắng nghe sự kiện khi modal được mở
+		$('#editProductModal').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget); // Lấy nút đã kích hoạt modal
+			var id = button.data('id');
+			var name = button.data('name');
+			var image = button.data('image');  // Đường dẫn hình ảnh cũ
+			var price = button.data('price');
+			var category = button.data('category');
+			var stock = button.data('stock');
+
+			// Cập nhật giá trị trong modal
+			var modal = $(this);
+			modal.find('#productId').val(id);  // Cập nhật Id
+			modal.find('#productName').val(name);  // Cập nhật tên sản phẩm
+			modal.find('#productPrice').val(price);  // Cập nhật giá
+			modal.find('#productCategory').val(category).change();
+			modal.find('#productInStock').val(stock);  // Cập nhật số lượng còn
+
+			// Hiển thị hình ảnh hiện tại
+			modal.find('#currentImage').attr('src', '/img/' + image);
+		});
+	</script>
+
+	<!-- Thêm JavaScript Bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

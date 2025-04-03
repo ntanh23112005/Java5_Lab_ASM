@@ -1,46 +1,68 @@
 <html th:fragment="view(title, content)">
 
 <head>
-    <title th:replace="${title}">TITLE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title th:replace="${title}">TITLE</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<style>
-		header{
+		header {
 			position: sticky;
 			top: 0;
 			z-index: 1000;
 		}
-        .card {
-            transition: all 0.3s ease-in-out !important;
-            border-radius: 10px !important;
-        }
-		
-		.card:hover{
-			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important; 
+
+		.card {
+			transition: all 0.3s ease-in-out !important;
+			border-radius: 10px !important;
 		}
 
-        .card img {
-            transition: transform 0.3s ease-in-out !important;
-        }
+		.card:hover {
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+		}
 
-        .card:hover img {
-            transform: scale(1.05) !important;
-        }
+		.card img {
+			transition: transform 0.3s ease-in-out !important;
+		}
+
+		.card:hover img {
+			transform: scale(1.05) !important;
+		}
 	</style>
 </head>
 
 <body>
-    <header>
-        <nav th:replace="~{/components/menu}">MENU</nav>
-    </header>
+	<header>
+		<nav th:replace="~{/components/menu}">MENU</nav>
+	</header>
+
+	<div th:if="${success}" class="toast position-fixed top-0 end-0 p-3" role="alert" aria-live="assertive"
+		aria-atomic="true" data-bs-delay="2000" style="z-index: 1001; margin-top: 100px;">
+		<div class="toast-header">
+			<strong class="me-auto">Thông báo</strong>
+			<small>Vừa xong</small>
+			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+		</div>
+		<div class="toast-body">
+			<p th:text="${success}">
+		</div>
+	</div>
+
 	<div class="" th:replace="~{/components/search}"></div>
-    <div class="container">
-        <div class="row" th:replace="${content}">
-            content
-        </div>
-    </div>
-    
-    <!--Footer -->
-    <div th:replace="~{/components/footer}"></div>
+	<div class="container">
+		<div class="row" th:replace="${content}">
+			content
+		</div>
+	</div>
+
+	<!--Footer -->
+	<div th:replace="~{/components/footer}"></div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var toastEl = document.querySelector('.toast');
+			var toast = new bootstrap.Toast(toastEl);
+			toast.show();
+		});
+	</script>
 </body>
 
 </html>
