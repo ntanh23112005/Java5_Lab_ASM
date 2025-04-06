@@ -3,7 +3,6 @@ package poly.java5.test;
 import java.util.HashMap;
 import java.util.Map;
 
-import poly.java5.test.UserTest;
 
 public class AccountServiceTestImpl {
 
