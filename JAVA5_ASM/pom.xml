@@ -99,11 +99,11 @@
         </dependency>
 
 
-        <!-- Selenium Java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <!-- Kiểm tra phiên bản mới nhất trên trang Maven Repository -->
+            <version>4.31.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -114,10 +114,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
+            <artifactId>poi-ooxml</artifactId>
             <version>5.4.0</version>
         </dependency>
 

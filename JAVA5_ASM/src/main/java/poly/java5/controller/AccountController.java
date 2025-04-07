@@ -48,12 +48,12 @@ public class AccountController {
 		User u = service.findByUsernameAndPassword(us, pw);
 		if (u != null) {
 //			System.out.println("Đăng nhập thành công " +u.getFullname());
-			redirectAttributes.addFlashAttribute("success", "Đăng nhập thành công ! Xin chào " + u.getFullname());
+			redirectAttributes.addFlashAttribute("success", "Log in success ! Hi " + u.getUsername());
 			session.setAttribute("loggedUser", u);
 			return "redirect:/trang-chu";
 		} else {
 			System.out.println("Thất bại");
-			redirectAttributes.addFlashAttribute("error", "Thông tin đăng nhập không chính xác !");
+			redirectAttributes.addFlashAttribute("error", "Wrong username or pass word, try again !");
 			return "redirect:/account/login";
 		}
 	}
