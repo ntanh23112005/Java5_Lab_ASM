@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+    <test name="1_LoginTest">
+        <classes>
+            <class name="poly.java5.asm.LoginTest" />
+        </classes>
+    </test>
+
+    <test name="2_RegisterTest">
+        <classes>
+            <class name="poly.java5.asm.RegisterTest" />
+        </classes>
+    </test>
+
+    <test name="3_ProductTest">
+        <classes>
+            <class name="poly.java5.asm.ProductTest" />
+        </classes>
+    </test>
+
+    <test name="4_OrderTest">
+        <classes>
+            <class name="poly.java5.asm.OrderTest" />
+        </classes>
+    </test>
+</suite>
