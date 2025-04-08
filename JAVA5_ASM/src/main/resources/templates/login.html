@@ -14,7 +14,7 @@
 			<h3 class="text-center fw-bold text-danger">Đăng nhập</h3>
 			<!-- Thông báo thành công -->
 			<div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${success}">
-				<span th:text="${success}"></span>
+				<span name="registerSuccess" th:text="${success}"></span>
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 			<!-- Thông báo lỗi -->
@@ -25,11 +25,11 @@
 			<form action="/account/login" method="post">
 				<div class="mb-3">
 					<label class="form-label">Tên đăng nhập</label>
-					<input type="text" name="username" class="form-control" placeholder="Nhập username" required>
+					<input type="text" name="username" class="form-control" placeholder="Nhập username">
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mật khẩu</label>
-					<input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>
+					<input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu">
 				</div>
 				<button type="submit" name="submit" class="btn btn-warning w-100">Đăng nhập</button>
 			</form>

@@ -19,4 +19,6 @@ public interface UserService {
 	void save(Authority authority);
 	
 	Role findByIdEquals(String id);
+
+	void delete(String username);
 }

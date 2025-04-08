@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import poly.java5.entity.Order;
 import poly.java5.entity.Product;
 import poly.java5.entity.User;
@@ -66,10 +67,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/gio-hang")
-	public String cartView(Model model) {
+	public String cartView(Model model, RedirectAttributes redirectAttributes) {
 		
 		User user = (User)session.getAttribute("loggedUser");
-		
+
+		if (user == null){
+			redirectAttributes.addFlashAttribute("error", "You must login first !");
+			return "redirect:/account/login";
+		}
 		 // Kiểm tra sự tồn tại của đơn hàng chưa hoàn tất (OrderStatus = 1)
         Order order = orderService.findByUsernameAndOrderStatus(user.getUsername(), 1);
 

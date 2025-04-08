@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
+import poly.java5.entity.Order;
 import poly.java5.entity.Product;
 import poly.java5.entity.User;
 import poly.java5.service.CartService;
+import poly.java5.service.OrderService;
 import poly.java5.service.ProductService;
 
 @Controller
@@ -19,6 +21,8 @@ public class OrderController {
 
 	@Autowired
 	CartService cartService;
+	@Autowired
+	OrderService orderService;
 	@Autowired
 	ProductService productService;
 	@Autowired
@@ -39,7 +43,7 @@ public class OrderController {
 	public String deleteFromCart(RedirectAttributes redirectAttributes
 								, @PathVariable("id") Integer productId) {
 		cartService.deleteFromCart(productId);
-		redirectAttributes.addFlashAttribute("success", "Xóa thành công");
+		redirectAttributes.addFlashAttribute("success", "Delete product successfully !");
 		return "redirect:/gio-hang";
 	}
 	
@@ -47,8 +51,25 @@ public class OrderController {
 	public String buy(RedirectAttributes redirectAttributes
 						, @RequestParam("shippingAddress") String shippingAddress) {
 		User user = (User)session.getAttribute("loggedUser");
+
+		if (user == null) {
+			return "redirect:/account/login";
+		}
+
+		// Lấy order hiện tại của user
+		Order order = orderService.findByUsernameAndOrderStatus(user.getUsername(), 1);
+
+		if (order == null || order.getOrderDetails() == null || order.getOrderDetails().isEmpty()) {
+			redirectAttributes.addFlashAttribute("success", "Your cart is null !");
+			return "redirect:/gio-hang"; // quay lại trang giỏ hàng
+		}
+
+		if (shippingAddress.isEmpty() || shippingAddress.equalsIgnoreCase("Chưa cập nhật")){
+			redirectAttributes.addFlashAttribute("success", "Please enter your shipping address !");
+			return "redirect:/gio-hang"; // quay lại trang giỏ hàng
+		}
 		cartService.buyCart(shippingAddress, user);
-		redirectAttributes.addFlashAttribute("success", "Cảm ơn bạn đã tin dùng sản phẩm");
+		redirectAttributes.addFlashAttribute("success", "Thanks for your experience !");
 		return "redirect:/trang-chu";
 	}
 }

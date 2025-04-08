@@ -22,7 +22,7 @@ public class User {
 	private boolean enabled;
 	private String fullname;
 	private String mobile;
-	private String photo;
+	private String photo = "";
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Authority> authorities;
 	

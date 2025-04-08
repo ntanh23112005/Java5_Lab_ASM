@@ -145,7 +145,8 @@
 		<!-- Avatar & Dropdown Tài khoản -->
 		<div class="dropdown account-container">
 			<th:block th:if="${session.loggedUser != null}">
-				<img th:src="@{|/img/${session.loggedUser.photo}|}" alt="Avatar" class="avatar">
+				<img name= "avatar"
+					 th:src="@{|/img/${session.loggedUser.photo}|}" alt="Avatar" class="avatar">
 			</th:block>
 			<th:block th:if="${session.loggedUser == null}">
 							<img th:src="@{|/img/|}" alt="Avatar" class="avatar">
@@ -156,7 +157,7 @@
 					<span>Xin chào, </span>
 					<p class="account-name" th:text="${session.loggedUser.fullname}"></p>
 					<a href="/account/profile">Thông tin cá nhân</a>
-					<a href="/account/logout">Đăng xuất</a>
+					<a name="logOutBtn" href="/account/logout">Đăng xuất</a>
 				</th:block>
 
 				<!-- Nếu chưa đăng nhập -->

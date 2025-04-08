@@ -22,7 +22,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
 			</div>
 			<div class="toast-body">
-				<p th:text="${success}">
+				<p name="success" th:text="${success}">
 			</div>
 		</div>
 
@@ -45,15 +45,15 @@
 			<tbody>
 				<tr th:each="item, stt : ${order.orderDetails}">
 					<td th:text="${stt.count}"></td>
-					<td th:text="${item.product.id}"></td>
+					<td name="productId" th:text="${item.product.id}"></td>
 					<td th:text="${item.product.name}"></td>
 					<td th:text="${#numbers.formatDecimal(item.product.unitPrice, 0, 'COMMA', 0, 'POINT')} + 'đ'"></td>
-					<td th:text="${item.quantity}"></td>
+					<td name="productQuantity" th:text="${item.quantity}"></td>
 					<td
 						th:text="${#numbers.formatDecimal(item.product.unitPrice * item.quantity, 0, 'COMMA', 0, 'POINT')} + 'đ'">
 					</td>
 					<td>
-						<a class="btn btn-danger" th:href="@{|/delete-cart/${item.product.id}|}">Xóa</a>
+						<a name="deleteProductBtn" class="btn btn-danger" th:href="@{|/delete-cart/${item.product.id}|}">Xóa</a>
 					</td>
 				</tr>
 			</tbody>
@@ -66,7 +66,10 @@
 
 		<div class="text-end mt-3">
 			<a href="/trang-chu" class="btn btn-secondary">Tiếp tục mua sắm</a>
-			<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#checkoutModal">Thanh toán</button>
+			<button class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#checkoutModal"
+					name="makeOrderBtn">Thanh toán</button>
 		</div>
 	</div>
 
@@ -90,8 +93,11 @@
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Địa chỉ giao hàng</label>
-							<input type="text" th:field="*{shippingAddress}" class="form-control"
-								placeholder="Nhập địa chỉ giao hàng" required>
+							<input type="text"
+								   th:field="*{shippingAddress}"
+								   class="form-control"
+								   name="shippingAddress"
+								   placeholder="Nhập địa chỉ giao hàng">
 						</div>
 
 
@@ -124,7 +130,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-					 <button type="submit" class="btn btn-primary">Mua hàng</button>
+					 <button name="makeOrderBtnSubmit" type="submit" class="btn btn-primary">Mua hàng</button>
 				</div>
 				</form>
 			</div>

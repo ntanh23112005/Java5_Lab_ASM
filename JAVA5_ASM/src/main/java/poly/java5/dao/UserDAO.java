@@ -13,4 +13,5 @@ public interface UserDAO extends JpaRepository<User, String> {
 	User findByActivationtoken(String token);
 	
 	List<User> findAll();
+
 }

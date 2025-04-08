@@ -48,7 +48,7 @@ public class LoginTest {
 
     // test with correct username and email
     @Test(priority = 1)
-    public void loginSuccess() throws Exception{
+    public void loginSuccess() throws Exception {
 
         int rowIndex = 9; //I10, J10
 
@@ -68,7 +68,7 @@ public class LoginTest {
         String actualResult, status;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        try{
+        try {
             WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     uiMap.getLocator("loggedInSuccess")
             ));
@@ -85,7 +85,7 @@ public class LoginTest {
             status = "FAIL";
         }
 
-            writeExcel(rowIndex, actualResult, status);
+        writeExcel(rowIndex, actualResult, status);
 //            System.out.println("Excel path: " + excelPath);
 //            System.out.println("Username: " + dataFile.getData("login.username.correct"));
 //            System.out.println("Password: " + dataFile.getData("login.password.correct"));
@@ -93,7 +93,7 @@ public class LoginTest {
 
     //test with incorrect username and valid password
     @Test(priority = 2)
-    public void logInFailWithWrongUsernameAndCorrectPassword() throws Exception{
+    public void logInFailWithWrongUsernameAndCorrectPassword() throws Exception {
         int rowIndex = 12; //i13, j13
 
         driver.get("http://localhost:8080/account/login");
@@ -112,7 +112,7 @@ public class LoginTest {
         String actualResult, status;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        try{
+        try {
             WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     uiMap.getLocator("loggedInFail")
             ));
@@ -137,7 +137,7 @@ public class LoginTest {
 
     //test with correct username and incorrect password
     @Test(priority = 3)
-    public void logInFailWithCorrectUsernameAndWrongPassword() throws Exception{
+    public void logInFailWithCorrectUsernameAndWrongPassword() throws Exception {
         int rowIndex = 15; //i16, j16
 
         driver.get("http://localhost:8080/account/login");
@@ -156,7 +156,7 @@ public class LoginTest {
         String actualResult, status;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        try{
+        try {
             WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     uiMap.getLocator("loggedInFail")
             ));
@@ -176,7 +176,7 @@ public class LoginTest {
 
     //test with correct username and incorrect password
     @Test(priority = 4)
-    public void logInFailWithWrongUsernameAndWrongPassword() throws Exception{
+    public void logInFailWithWrongUsernameAndWrongPassword() throws Exception {
         int rowIndex = 18; //i19, j19
 
         driver.get("http://localhost:8080/account/login");
@@ -195,7 +195,7 @@ public class LoginTest {
         String actualResult, status;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        try{
+        try {
             WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     uiMap.getLocator("loggedInFail")
             ));
@@ -205,6 +205,94 @@ public class LoginTest {
 
             status = actualResult.equalsIgnoreCase(expected) ? "PASS" : "FAIL";
 
+        } catch (Exception e) {
+            actualResult = ("Login fail (Element not found)");
+            status = "FAIL";
+        }
+
+        writeExcel(rowIndex, actualResult, status);
+    }
+
+    //test log out account
+    @Test(priority = 5)
+    public void logOutAccount() throws Exception {
+        int rowIndex = 42; //i43, j43
+
+        driver.get("http://localhost:8080/account/login");
+
+        // state 1: log in to home
+        WebElement username = driver.findElement(uiMap.getLocator("username"));
+        WebElement password = driver.findElement(uiMap.getLocator("password"));
+        WebElement loginBtn = driver.findElement(uiMap.getLocator("submit"));
+
+        username.clear();
+        password.clear();
+
+        username.sendKeys(dataFile.getData("login.username.correct"));
+        password.sendKeys(dataFile.getData("login.password.correct"));
+        loginBtn.click();
+
+        // state 2: log out
+        WebElement avatar = driver.findElement(uiMap.getLocator("avatar"));
+        WebElement logOutBtn = driver.findElement(uiMap.getLocator("logOutBtn"));
+
+        avatar.click();
+        logOutBtn.click();
+
+        String actualResult, status;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        try {
+            WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    uiMap.getLocator("registerSuccess")
+            ));
+
+            actualResult = resultElement.getText().trim();
+            String expected = dataFile.getData("logout.message.success").trim();
+
+            status = actualResult.equalsIgnoreCase(expected) ? "PASS" : "FAIL";
+
+        } catch (Exception e) {
+            actualResult = ("Login fail (Element not found)");
+            status = "FAIL";
+        }
+
+        writeExcel(rowIndex, actualResult, status);
+    }
+
+    @Test(priority = 6)
+    public void loginFailWithEmptyInformation() throws Exception {
+
+        int rowIndex = 6; //I7, J7
+
+        driver.get("http://localhost:8080/account/login");
+
+        WebElement username = driver.findElement(uiMap.getLocator("username"));
+        WebElement password = driver.findElement(uiMap.getLocator("password"));
+        WebElement loginBtn = driver.findElement(uiMap.getLocator("submit"));
+
+        username.clear();
+        password.clear();
+
+        username.sendKeys(dataFile.getData("login.username.empty"));
+        password.sendKeys(dataFile.getData("login.password.empty"));
+        loginBtn.click();
+
+        String actualResult, status;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        try {
+            WebElement resultElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    uiMap.getLocator("loggedInFail")
+            ));
+
+            actualResult = resultElement.getText().trim();
+            String expected = dataFile.getData("login.message.empty").trim();
+
+            status = actualResult.equalsIgnoreCase(expected) ? "PASS" : "FAIL";
+
+            System.out.println("Actual: " + actualResult);
+            System.out.println("Expected: " + expected);
         } catch (Exception e) {
             actualResult = ("Login fail (Element not found)");
             status = "FAIL";
@@ -233,7 +321,6 @@ public class LoginTest {
 
         System.out.println("Test execution completed and resources cleaned up.");
     }
-
 
 
     // write to excel, column I, J function

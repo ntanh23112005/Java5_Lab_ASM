@@ -53,4 +53,9 @@ public class UserServiceImpl implements UserService {
 		return roleDAO.findByIdEquals(id);
 	}
 
+	@Override
+	public void delete(String username) {
+		userDAO.deleteById(username);
+	}
+
 }
