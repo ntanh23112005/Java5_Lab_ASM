@@ -251,8 +251,8 @@ public class OrderTest {
 
             String expected = dataFile.getData("order.fail.shippingAddress.null").trim();
 
-//            System.out.println("Actual : " + actualResult);
-//            System.out.println("Expected : " + expected);
+            System.out.println("Actual : " + actualResult);
+            System.out.println("Expected : " + expected);
 
             status = actualResult.equalsIgnoreCase(expected) ? "PASS" : "FAIL";
 
