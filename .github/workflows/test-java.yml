@@ -24,7 +24,10 @@ jobs: #job là hành động được thực hiện trong sự kiện
           java-version: '17' # phiên bản JDK
 
       - name: Build and test on windows
-        run: mvn clean verify # Build dự án
+        run: |
+          cd JAVA5_ASM
+          mvn clean verify
+      # Build dự án
 
         # Và thực hiện tất cả các kiểm thử được quy định trong dự án
 
