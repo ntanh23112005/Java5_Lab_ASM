@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite1" parallel="classes" thread-count="2">
+
+    <test name = "exampletest1">
+        <classes>
+            <class name = "poly.java6.lab6.login.TestLogin1" />
+            <class name = "poly.java6.lab6.login.TestLogin2" />
+        </classes>
+    </test>
+
+</suite>

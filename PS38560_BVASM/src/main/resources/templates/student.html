@@ -1,0 +1,56 @@
+<h1>Student management</h1>
+
+<form action="/student" method="post" enctype="multipart/form-data">
+	<label>Student id</label><input type="text" id="id" name="id"> <br>
+	
+	<label>Full name</label><input type="text" id="fullname" name="fullname"> <br>
+	<label>Gender</label>
+	<input type="radio" id="gender" name="gender" value="1"> <label>Nam</label>
+	<input type="radio" id="gender" name="gender" value="0"> <label>Nữ</label> <br>
+	<input type="file" id="photo" name="photo"><br>
+	<label>Mark</label><input type="number" id="mark" name="mark">
+
+	<button>Lưu</button>
+</form>
+<hr>
+
+<table border="1">
+	<thead>
+		<td>No.</td>
+		<td>Id</td>
+		<td>Fullname</td>
+		<td>Gender</td>
+		<td>Photo</td>
+		<td>Mark</td>
+		<td>Hành động</td>
+	</thead>
+
+	<tbody>
+		<th:block th:each="c, s: ${students}">
+			<tr>
+				<td th:text="${s.count}"></td>
+				<td th:text="${c.id}"></td>
+				<td th:text="${c.fullname}"></td>
+				<td th:text="${c.gender ? 'Nam':'Nữ'}"></td>
+				<td>
+					<img style="width: 50px;" th:src="@{|/img/${c.photo}|}">
+				</td>
+				<td th:text="${c.mark}"></td>
+				<td>
+					<button type="button" onclick="editCar(this)" th:data-id="${c.id}" th:data-name="${c.fullname}"
+						th:data-gender="${c.gender}" th:data-photo="${c.photo}" th:data-mark="${c.mark}">Update</button>
+				</td>
+				
+			</tr>
+		</th:block>
+	</tbody>
+</table>
+
+<script>
+	function editCar(button) {
+		document.getElementById('id').value = button.getAttribute("data-id");
+		document.getElementById('fullname').value = button.getAttribute("data-name");
+		document.getElementById('gender').active = button.getAttribute("data-gender");
+		document.getElementById('mark').value = button.getAttribute("data-mark");
+	}
+</script>

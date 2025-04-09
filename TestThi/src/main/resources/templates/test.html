@@ -1,0 +1,41 @@
+<form action="/search" method="post">
+	<input type="text" name="search">
+	<button>Tìm</button>
+</form>
+
+<form id="carForm" action="/car" method="post">
+	<label>Name:</label> <input type="text" id="name" name="name">
+	<label>Price:</label> <input type="number" id="price" name="price">
+	<button>Lưu</button>
+</form>
+
+<table border="1">
+	<thead>
+		<td>Id</td>
+		<td>Name</td>
+		<td>Price</td>
+		<td colspan="2">Hành động</td>
+	</thead>
+
+	<tbody>
+		<th:block th:each="c: ${cars}">
+			<tr>
+				<td th:text="${c.id}"></td>
+				<td th:text="${c.name}"></td>
+				<td th:text="${c.price}"></td>
+				<td>
+					<button type="button" onclick="editCar(this)" th:data-name="${c.name}"
+						th:data-price="${c.price}">Update</button>
+				</td>
+				<td><a th:href="@{|/delete/${c.id}|}">Xóa</a></td>
+			</tr>
+		</th:block>
+	</tbody>
+</table>
+
+<script>
+	function editCar(button) {
+		document.getElementById('name').value = button.getAttribute("data-name");
+		document.getElementById('price').value = button.getAttribute("data-price");
+	}
+</script>

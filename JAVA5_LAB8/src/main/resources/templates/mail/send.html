@@ -1,0 +1,37 @@
+<!-- mailForm.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Email</title>
+</head>
+<body>
+    <h2>Gửi Email</h2>
+    <form action="/mail/send" method="post" enctype="multipart/form-data">
+		<label>From:</label>
+		<input type="email" name="from" value="hohoangphu2005@gmail.com" required><br>
+		
+        <label>To:</label>
+        <input type="email" name="to" required><br>
+        
+        <label>CC:</label>
+        <input type="email" name="cc"><br>
+        
+        <label>BCC:</label>
+        <input type="email" name="bcc"><br>
+        
+        <label>Subject:</label>
+        <input type="text" name="subject" required><br>
+        
+        <label>Body:</label>
+        <textarea name="body" rows="5" required></textarea><br>
+        
+        <label>Attachments:</label>
+        <input type="file" name="attachments" multiple><br>
+        
+        <button type="submit" name="action" value="send">Gửi Trực Tiếp</button>
+        <button type="submit" name="action" value="queue">Xếp Hàng Đợi</button>
+    </form>
+</body>
+</html>

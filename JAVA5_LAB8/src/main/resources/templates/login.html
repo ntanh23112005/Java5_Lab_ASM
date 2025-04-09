@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <i th:text="${message}">Error message</i>
+    <form action="/auth/login" method="post">
+        <label>Username:</label>
+        <input name="username" required>
+        <br>
+        <label>Password:</label>
+        <input name="password" type="password" required>
+        <hr>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Suite Example">
+	<test name="testing">
+		<groups>
+			<run>
+				<include name="Regression"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="groupTest.groupExample"/>
+		</classes>
+	</test>
+</suite>
