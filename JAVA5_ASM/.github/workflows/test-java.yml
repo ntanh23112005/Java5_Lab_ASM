@@ -1,0 +1,30 @@
+name: Java ASM Test
+
+on: # định nghĩa các sự kiện để kích hoạt workflow
+  pull_request: # sự kiện pull_request: khi có Pull Request được mở hoặc cập nhật
+    branches: # các nhánh tác động bởi sự kiện
+      - main
+  push: # sự kiện push: khi có commit được đẩy lên
+    branches: # các nhánh tác động bởi sự kiện
+      - main
+
+jobs: #job là hành động được thực hiện trong sự kiện
+  windows-job: # tên job
+    name: Test on Windows # tên hiển thị của jobs
+    runs-on: windows-latest # job chạy trên 1 môi trường ảo với hệ điều hành windows phiên bản mới nhât
+
+    steps: # các bước thực hien
+      - name: Checkout Code
+        uses: actions/checkout@v3 # tác dụng của action: Clone toàn bộ mã nguồn của repo
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3 # tác dụng của action: Cài đặt JDK
+        with:
+          distribution: 'temurin' # đây là nhà cung cấp JDK
+          java-version: '17' # phiên bản JDK
+
+      - name: Build and test on windows
+        run: mvn clean verify # Build dự án
+
+        # Và thực hiện tất cả các kiểm thử được quy định trong dự án
+
